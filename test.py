@@ -35,14 +35,8 @@ if __name__ == '__main__':
     image_width = (image.width // args.scale) * args.scale
     image_height = (image.height // args.scale) * args.scale
     image = image.resize((image_width, image_height), resample=pil_image.BICUBIC)
-    image.save("temp1.jpg")
-    print(image.size)
     image = image.resize((image.width // args.scale, image.height // args.scale), resample=pil_image.BICUBIC)
-    image.save("temp2.jpg")
-    print(image.size)
     image = image.resize((image.width * args.scale, image.height * args.scale), resample=pil_image.BICUBIC)
-    image.save("temp3.jpg")
-    print(image.size)
 
     image.save(args.image_file.replace('.', '_bicubic_x{}.'.format(args.scale)))
 
